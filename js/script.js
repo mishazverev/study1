@@ -229,19 +229,18 @@ window.addEventListener('DOMContentLoaded', () => {
             form.append(statusMessage);      
             const formData = new FormData(form);
 
-            // request.setRequestHeader('Content-type', 'application/json');
-            // const object = {};
-            // formData.forEach(function(value, key){
-            //     object[key] = value;                
-            // });
-            // const json = JSON.stringify(object);
-
+            request.setRequestHeader('Content-type', 'application/json');
+            const object = {};
+            formData.forEach(function(value, key){
+                object[key] = value;                
+            });
+          
             fetch('server.php',{
                 method: "POST",
                 // headers: {
                 //     'Content-type': 'application/json'
                 // },
-                body: formData
+                body: JSON.stringify(object)
             }).then(data => {
                     console.log(data.text());
                     showThanksModal(message.success);
