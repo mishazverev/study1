@@ -243,7 +243,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 // },
                 body: formData
             }).then(data => {
-                    console.log(data);
+                    console.log(data.text());
                     showThanksModal(message.success);
                     statusMessage.remove();
             }).catch(() => {
