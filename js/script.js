@@ -277,7 +277,7 @@ window.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }, 3000);
     }
-    fetch('db.json')
+    fetch('https://study-mz-1.herokuapp.com/menu')
         .then(data => data.json)
         .then(res => console.log(res));
 });
