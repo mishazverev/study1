@@ -212,10 +212,22 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     
     forms.forEach(item => {
-        postData(item);
+        bindPostData(item);
     });
 
-    function postData(form){
+    const postData = async (url,data) => {
+        const res = await fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: data
+        });
+
+        return await res.json();
+    };
+
+    function bindPostData(form){
         form.addEventListener('submit', (event) => {
             event.preventDefault();
 
@@ -234,14 +246,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 object[key] = value;                
             });
           
-            fetch('server.php',{
-                method: "POST",
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(object)
-            })
-            .then(data => data.text())
+            postData('https://my-json-server.typicode.com/mishazverev/study1/requests', JSON.stringify(object))
             .then(data => {
                     console.log(data);
                     showThanksModal(message.success);
