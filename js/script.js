@@ -278,6 +278,6 @@ window.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     }
     fetch('https://my-json-server.typicode.com/mishazverev/study1/menu')
-        .then(data => data.json)
+        .then(data => data.json())
         .then(res => console.log(res));
 });
