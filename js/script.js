@@ -229,7 +229,6 @@ window.addEventListener('DOMContentLoaded', () => {
             form.append(statusMessage);      
             const formData = new FormData(form);
 
-            request.setRequestHeader('Content-type', 'application/json');
             const object = {};
             formData.forEach(function(value, key){
                 object[key] = value;                
