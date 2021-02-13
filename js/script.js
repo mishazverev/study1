@@ -277,7 +277,7 @@ window.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }, 3000);
     }
-    fetch('https://study-mz-1.herokuapp.com/menu')
+    fetch('https://my-json-server.typicode.com/mishazverev/study1/menu')
         .then(data => data.json)
         .then(res => console.log(res));
 });
