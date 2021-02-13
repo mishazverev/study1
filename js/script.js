@@ -240,9 +240,9 @@ window.addEventListener('DOMContentLoaded', () => {
                     'Content-type': 'application/json'
                 },
                 body: JSON.stringify(object)
-            }).then (data => {
-                    data.text();
-            }).then(data => {
+            })
+            .then(data.text())
+            .then(data => {
                     console.log(data);
                     showThanksModal(message.success);
                     statusMessage.remove();
