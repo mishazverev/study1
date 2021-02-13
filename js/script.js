@@ -241,7 +241,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify(object)
             })
-            .then(data.text())
+            .then(data => data.text())
             .then(data => {
                     console.log(data);
                     showThanksModal(message.success);
