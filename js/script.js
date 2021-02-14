@@ -246,7 +246,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 object[key] = value;                
             });
           
-            postData('https://my-json-server.typicode.com/mishazverev/study1/requests', JSON.stringify(object))
+            postData('https://study-mz-2.herokuapp.com/requests', JSON.stringify(object))
             .then(data => {
                     console.log(data);
                     showThanksModal(message.success);
@@ -282,7 +282,9 @@ window.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }, 3000);
     }
-    fetch('https://my-json-server.typicode.com/mishazverev/study1/menu')
+    fetch('https://study-mz-2.herokuapp.com/menu')
         .then(data => data.json())
         .then(res => console.log(res));
+    
+    
 });
