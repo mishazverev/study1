@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +17,7 @@
   },
   "homepage": "https://github.com/mishazverev/study1#readme",
   
-  "devDependencies": {
+  "Dependencies": {
     "json-server": "^0.16.3"
   }
 }
