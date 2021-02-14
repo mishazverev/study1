@@ -181,7 +181,7 @@ window.addEventListener('DOMContentLoaded', () => {
     getResource('http://my-json-server.typicode.com/mishazverev/study1/menu')
         .then (data => {
             data.forEach(({img, altimg, title, descr, price}) => {
-                new MenuCard(img, altimg, title, descr, price).render();
+                new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
             });
         });
     
