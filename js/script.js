@@ -227,6 +227,8 @@ window.addEventListener('DOMContentLoaded', () => {
         return await res.json();
     };
 
+
+
     function bindPostData(form){
         form.addEventListener('submit', (event) => {
             event.preventDefault();
@@ -245,7 +247,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 object[key] = value;                
             });
           
-            postData('https://my-json-server.typicode.com/mishazverev/study1/requests', JSON.stringify(object))
+            postData('http://my-json-server.typicode.com/mishazverev/study1/requests', JSON.stringify(object))
             .then(data => {
                     console.log(data);
                     showThanksModal(message.success);
@@ -280,7 +282,7 @@ window.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }, 3000);
     }
-    fetch('https://my-json-server.typicode.com/mishazverev/study1/menu')
+    fetch('http://my-json-server.typicode.com/mishazverev/study1/menu')
         .then(data => data.json())
         .then(res => console.log(res));
     
