@@ -212,10 +212,22 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     
     forms.forEach(item => {
-        postData(item);
+        bindPostData(item);
     });
 
-    function postData(form){
+    const postData = async (url,data) => {
+        const res = await fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: data
+        });
+
+        return await res.json();
+    };
+
+    function bindPostData(form){
         form.addEventListener('submit', (event) => {
             event.preventDefault();
 
@@ -224,7 +236,6 @@ window.addEventListener('DOMContentLoaded', () => {
             statusMessage.style.cssText = `
                 display: block;
                 margin: 0 auto;
-
             `;
             form.append(statusMessage);      
             const formData = new FormData(form);
@@ -234,14 +245,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 object[key] = value;                
             });
           
-            fetch('server.php',{
-                method: "POST",
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(object)
-            })
-            .then(data => data.text())
+            postData('https://my-json-server.typicode.com/mishazverev/study1/requests', JSON.stringify(object))
             .then(data => {
                     console.log(data);
                     showThanksModal(message.success);
@@ -267,7 +271,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 <div class = "modal__close" data-close>×</div>
                 <div class = "modal__title">${message}</div>
             </div>
-
         `;
         document.querySelector('.modal').append(thanksModal);
         setTimeout(() => {
@@ -277,7 +280,9 @@ window.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }, 3000);
     }
-    fetch('https://study-mz-1.herokuapp.com/menu')
-        .then(data => data.json)
+    fetch('https://my-json-server.typicode.com/mishazverev/study1/menu')
+        .then(data => data.json())
         .then(res => console.log(res));
+    
+    
 });
