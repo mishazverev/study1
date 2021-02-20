@@ -2,7 +2,7 @@ function timer() {
 
      // Timer
 
-     const deadline = '2021-04-12';
+     const deadline = '2021-05-12';
      function getTimeRemaining (endtime){
  
          const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -57,4 +57,4 @@ function timer() {
 
 }
 
-export default timer;
+module.exports = timer;

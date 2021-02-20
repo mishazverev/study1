@@ -36,4 +36,4 @@ function modal(){
 
 }
 
-export default modal;
+module.exports = modal;

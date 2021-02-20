@@ -86,4 +86,4 @@ function forms(){
 
 }
 
-export default forms;
+module.exports = forms;
